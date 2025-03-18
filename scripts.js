@@ -14,6 +14,11 @@ function generateNumber() {
     const minInput = document.querySelector('.input-min');
     const maxInput = document.querySelector('.input-max');
 
+    if (!/^\d+$/.test(minInput.value) || !/^\d+$/.test(maxInput.value)) {
+        alert("Por favor, insira apenas números inteiros.");
+        return;
+    }
+
     if (!minInput.value || !maxInput.value) {
         alert("Por favor, preencha ambos os campos.");
         return; // Impede a execução do restante da função
@@ -30,7 +35,7 @@ function generateNumber() {
 
     // Verifique se o valor mínimo é menor ou igual ao valor máximo
     if (min > max) {
-        alert("O valor mínimo deve ser menor ou igual ao valor máximo.");
+        alert("O valor mínimo deve ser menor que o valor máximo.");
         return;
     }
 
